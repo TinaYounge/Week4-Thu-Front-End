@@ -4,3 +4,8 @@
 .p-thick {
   font-weight: bold;
 }
+.card:hover {
+  background-color: rgba(200, 230, 243, 0.5);
+  transform: scale(1.05);
+  transition: 0.25s;
+}
