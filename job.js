@@ -28,7 +28,7 @@ function renderjobs(job) {
 
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-secondary" ><a href  ="./jobsinCom.html ">View</a></button>
+          <button type="button" class="btn btn-sm btn-outline-secondary" ><a href  ="./eachJob.html ">View</a></button>
           <button type="button" class="btn btn-sm btn-outline-secondary">Save</button>
         </div>
         <small class="text-muted">9 mins</small>
