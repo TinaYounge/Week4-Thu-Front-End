@@ -41,9 +41,30 @@ getJobs();
 const form = document.getElementById("jobCreate");
 console.log("form", form);
 form.addEventListener("submit", (el) => {
+  console.log("hahah");
   console.log("el", { el });
   el.preventDefault();
-  const title = document.getElementById("title").value;
-  const city = document.getElementById("city").value;
+  const title = form.elements["title"].value;
+  const city = form.elements["city"].value;
   console.log("city,vale", { city, title });
+  creatNewJobs({ city, title });
+  getJobs();
 });
+
+async function creatNewJobs(j) {
+  const resp = await fetch("http://localhost:5000/jobs", {
+    method: "POST", // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(j), // body data type must match "Content-Type" header
+  });
+  const json = await resp.json();
+  console.log({ json });
+}
