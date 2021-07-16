@@ -26,7 +26,7 @@ function renderCompanies(company) {
       <p class="card-text">${company.name}</p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-secondary" ><a href  ="./jobsinCom.html ">View</a></button>
+          <button type="button" class="btn btn-sm btn-outline-secondary" ><a href  ="./jobsinCom.html?companyId=${company.id} ">View</a></button>
           <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
         </div>
         <small class="text-muted">9 mins</small>

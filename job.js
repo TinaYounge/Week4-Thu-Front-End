@@ -1,4 +1,15 @@
-let url = `http://localhost:5000/jobs`;
+// let url = `http://localhost:5000/jobs`;
+
+function produceDefaultUrl() {
+  let url = `http://localhost:5000/jobs?companyId`;
+  const urlParams = window.location.search.split("=")[1];
+  if (urlParams) {
+    url += "=" + urlParams;
+  }
+  return url;
+}
+let url = produceDefaultUrl();
+console.log(url);
 
 async function getJobs() {
   try {
@@ -28,7 +39,7 @@ function renderjobs(job) {
 
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-secondary" ><a href  ="./eachJob.html ">View</a></button>
+          <button type="button" class="btn btn-sm btn-outline-secondary"><a href  ="./eachJob.html?id=${job.id} ">View</a></button>
           <button type="button" class="btn btn-sm btn-outline-secondary">Save</button>
         </div>
         <small class="text-muted">9 mins</small>

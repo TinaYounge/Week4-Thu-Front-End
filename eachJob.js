@@ -1,16 +1,24 @@
-let url = `http://localhost:5000/jobs`;
+// let url = `http://localhost:5000/jobs`;
+
+function produceDefaultUrl() {
+  let url = `http://localhost:5000/jobs?id`;
+  const urlParams = window.location.search.split("=")[1];
+  if (urlParams) {
+    url += "=" + urlParams;
+  }
+  return url;
+}
+let url = produceDefaultUrl();
+console.log(url);
 
 async function getJobs() {
   try {
     const response = await fetch(url);
     const json = await response.json();
-    const jobs = json;
-    console.log("jobs", jobs);
+    const job = json;
+    console.log("jobs", job);
     const jobsHTML = [];
-
-    for (const job of jobs) {
-      jobsHTML.push(renderjobs(job));
-    }
+    jobsHTML.push(renderjobs(job));
     document.getElementById("eachJob").innerHTML = jobsHTML.join("");
   } catch (error) {
     console.log(error);

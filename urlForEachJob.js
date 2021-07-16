@@ -1,13 +1,13 @@
-const languages = ["ar", "zh", "en", "es", "fr", "ru"];
+const idJobs = ["_uq65wzabx", "_386rlbuup", "_uc5gprb52", "_92n21ombp"];
 
-function renderLanguageAnchorTags() {
+function renderJobAnchorTags() {
   let result = window.location.origin;
   let result2 = window.location.pathname;
 
-  const languageHTML = languages.map(
-    (el) => `<a href="${result}${result2}?lang=${el}">${el}</a>`
+  const jobHTML = idJobs.map(
+    (el) => `<a href="${result}${result2}?id=${el}">View</a>`
   );
-  document.getElementById("language").innerHTML = languageHTML;
-  // document.getElementById("languages").innerHTML = languagesMap.
+  document.getElementById("idJob").innerHTML = jobHTML;
+  // document.getElementById("idJobs").innerHTML = idJobsMap.
 }
-renderLanguageAnchorTags();
+renderJobAnchorTags();
