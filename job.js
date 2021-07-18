@@ -1,10 +1,10 @@
 // let url = `http://localhost:5000/jobs`;
 
 function produceDefaultUrl() {
-  let url = `http://localhost:5000/jobs?companyId`;
+  let url = `http://localhost:5000/companies/companyId`;
   const urlParams = window.location.search.split("=")[1];
   if (urlParams) {
-    url += "=" + urlParams;
+    url += "/" + urlParams;
   }
   return url;
 }

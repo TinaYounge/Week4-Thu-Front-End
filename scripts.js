@@ -1,4 +1,15 @@
-let url = `http://localhost:5000/companies`;
+// let url = `http://localhost:5000/companies`;
+
+function produceDefaultUrl() {
+  let url = `http://localhost:5000/companies?page`;
+  const urlParams = window.location.search.split("=")[1];
+  if (urlParams) {
+    url += "=" + urlParams;
+  }
+  return url;
+}
+let url = produceDefaultUrl();
+console.log(url);
 
 async function getCompanies() {
   try {
@@ -26,8 +37,8 @@ function renderCompanies(company) {
       <p class="card-text">${company.name}</p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-secondary" ><a href  ="./jobsinCom.html?companyId=${company.id} ">View</a></button>
-          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary" ><a href  ="./jobsinCom.html?companyId=${company.id} ">View</a></button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
         </div>
         <small class="text-muted">9 mins</small>
       </div>
